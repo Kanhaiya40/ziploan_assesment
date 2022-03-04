@@ -28,63 +28,64 @@ class _GistInputState extends State<GistInput> {
 
   @override
   Widget build(BuildContext context) {
-    return OrientationBuilder(
-      builder: (context,orientation) {
-        return Scaffold(
-          resizeToAvoidBottomInset: orientation == Orientation.landscape ? false:true,
-          backgroundColor: primaryColor,
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Expanded(child: Container(
-                child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Padding(
-                    padding: const EdgeInsets.all(18.0),
-                    child: Image.asset(defaultImagePath + 'gist_welcome.png'),
-                  ),
+    return OrientationBuilder(builder: (context, orientation) {
+      return Scaffold(
+        resizeToAvoidBottomInset:
+            orientation == Orientation.landscape ? false : true,
+        backgroundColor: primaryColor,
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Expanded(
+                child: Container(
+              child: Align(
+                alignment: Alignment.bottomLeft,
+                child: Padding(
+                  padding: const EdgeInsets.all(18.0),
+                  child: Image.asset(defaultImagePath + 'gist_welcome.png'),
                 ),
-              )),
-              Column(
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        color: appWhite,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            topRight: Radius.circular(10))),
-                    child: Center(
-                      child: Padding(
-                        padding: const EdgeInsets.all(18.0),
-                        child: Column(
-                          children: [
-                            ListView.builder(
-                                shrinkWrap: true,
-                                primary: false,
-                                physics: NeverScrollableScrollPhysics(),
-                                itemCount: _gistnInfo.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return buildCountriesLayout(
-                                      _gistnInfo[index], context);
-                                }),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            buildContinueButton(
-                                func: checkAndGoToOfferLoaderPage, context: context)
-                          ],
-                        ),
+              ),
+            )),
+            Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      color: appWhite,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10))),
+                  child: Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(18.0),
+                      child: Column(
+                        children: [
+                          ListView.builder(
+                              shrinkWrap: true,
+                              primary: false,
+                              physics: NeverScrollableScrollPhysics(),
+                              itemCount: _gistnInfo.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return buildCountriesLayout(
+                                    _gistnInfo[index], context);
+                              }),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          buildContinueButton(
+                              func: checkAndGoToOfferLoaderPage,
+                              context: context)
+                        ],
                       ),
                     ),
-                  )
-                ],
-              )
-            ],
-          ),
-        );
-      }
-    );
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
+      );
+    });
   }
 
   Widget buildCountriesLayout(GistnInfo gistnInfo, BuildContext context) {

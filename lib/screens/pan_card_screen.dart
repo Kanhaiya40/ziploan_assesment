@@ -129,15 +129,5 @@ class _PanState extends State<Pan> {
     }
   }
 
-  //Listener
-  void restrictCharacters() {
-    RegExp regexp = new RegExp(
-      r"^|\-|\,|\ ",
-      caseSensitive: false,
-      multiLine: false,
-    );
-    String text = _controller.text;
-    String chng = text.replaceAll(regexp, "");
-    _controller.text = chng;
-  }
+
 }

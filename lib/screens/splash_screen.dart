@@ -23,9 +23,7 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: BoxDecoration(
-        color: Colors.white
-      ),
+      decoration: BoxDecoration(color: Colors.white),
       child: Center(
         child: SvgPicture.asset(defaultImagePath + 'Vector.svg'),
       ),
